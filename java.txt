@@ -1,0 +1,30 @@
+function responder(resposta) {
+    const respostaTexto = document.getElementById("resposta");
+    const animacaoDiv = document.getElementById("animacao");
+    const gatoDiv = document.getElementById("gato");
+
+    // Limpar animações e imagens anteriores
+    animacaoDiv.innerHTML = '';
+    gatoDiv.innerHTML = '';
+
+    if (resposta === 'sim') {
+        // Fogos de artifício
+        const fireworks = new Fireworks.default(animacaoDiv);
+        fireworks.start();
+
+        // Exibir resposta
+        respostaTexto.innerText = "Legal! Vamos comer!";
+        respostaTexto.style.color = "green";
+
+        // Exibir imagem do gato batendo palmas
+        gatoDiv.innerHTML = `<img src="https://media.giphy.com/media/3o6Zt7yKmiZlG8umk8/giphy.gif" alt="Gato Batendo Palmas">`;
+    } else if (resposta === 'nao') {
+        // Exibir resposta
+        respostaTexto.innerText = "Ok, talvez depois!";
+        respostaTexto.style.color = "red";
+
+        // Exibir imagem do gato triste com emojis chorando
+        gatoDiv.innerHTML = `<img src="https://media.giphy.com/media/l1J9qk01gKa5jcf58/giphy.gif" alt="Gato Triste">`;
+        respostaTexto.innerHTML += " 😢😢😢";
+    }
+}
